@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    <form action="/JSPAttributesServlet" method="post">
+    <form action="JSPAttributesServlet" method="post">
         <input type="text" name="name">
         <input type="text" name="surname">
         <input type="submit">
