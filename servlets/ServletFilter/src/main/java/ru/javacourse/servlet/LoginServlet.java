@@ -17,17 +17,17 @@ public class LoginServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        System.out.println("POST------------------------------------");
         String login = request.getParameter("login");
         String password = request.getParameter("password");
 
         if (login.equals("admin") && password.equals("admin")){
             request.getSession(true).setAttribute("token", 1);
 
-            response.sendRedirect("/welcome");
+            response.sendRedirect("welcome");
 
         } else {
-            response.sendRedirect("/login.html");
+            response.sendRedirect("login.html");
         }
 
     }
@@ -35,6 +35,7 @@ public class LoginServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+        System.out.println("GET------------------------------------");
         PrintWriter out = httpServletResponse.getWriter();
         try {
             out.println("<html>");
