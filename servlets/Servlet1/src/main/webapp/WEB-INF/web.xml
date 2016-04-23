@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <servlet>
+        <servlet-name>HelloWorld</servlet-name>
+        <servlet-class>ru.javacourse.servlet.HelloWorld</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+	    <!--то же самое имя, что и в теге <servlet-name> -->
+        <servlet-name>HelloWorld</servlet-name>
+        <url-pattern>/HelloWorld</url-pattern>
+    </servlet-mapping>
+
+	<!--Если вы обращаетесь к корню приложения, без явного указания мэппинга, то Томкат ищет здесь-->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+</web-app>
