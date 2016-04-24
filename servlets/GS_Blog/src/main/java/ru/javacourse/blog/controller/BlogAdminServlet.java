@@ -27,7 +27,7 @@ public class BlogAdminServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String mode = request.getParameter("mode");
-
+        // режим работы с постами
         if ("posts".equals(mode)) {
             List<Post> posts = postDao.getAll();
             request.setAttribute("posts", posts);
@@ -50,7 +50,9 @@ public class BlogAdminServlet extends HttpServlet {
         String postId = request.getParameter("post");
         String categoryId = request.getParameter("category");
 
+        //
         if ("edit".equals(action)) {
+            // posts.jsp
             String target = "/jsp/newPost.jsp";
             if (postId != null) {
                 Post post = postDao.getById(Integer.parseInt(postId));
@@ -58,6 +60,7 @@ public class BlogAdminServlet extends HttpServlet {
                 request.setAttribute("categories", categories);
                 request.setAttribute("post", post);
             }
+            // categories.jsp <a href="admin?action=delete&category=${cat.id}
             if (categoryId != null) {
                 target = "/jsp/admin/categories.jsp";
                 Category category = categoryDao.getById(Integer.parseInt(categoryId));
@@ -74,16 +77,16 @@ public class BlogAdminServlet extends HttpServlet {
                 Post post = postDao.getById(Integer.parseInt(postId));
                 if (post != null)
                     postDao.delete(post);
-                response.sendRedirect("/admin?mode=posts");
+                response.sendRedirect("admin?mode=posts");
                 return;
             }
-
+//<a href="admin?action=delete&category=${cat.id}
             if (categoryId != null) {
                 Category category = categoryDao.getById(Integer.parseInt(categoryId));
                 if (category != null)
                     categoryDao.delete(category);
 
-                response.sendRedirect("/admin?mode=categories");
+                response.sendRedirect("admin?mode=categories");
                 return;
             }
 

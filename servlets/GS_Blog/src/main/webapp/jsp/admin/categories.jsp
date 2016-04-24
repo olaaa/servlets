@@ -13,8 +13,8 @@
     <c:forEach items="${categories}" var="cat">
         <tr>
             <td style="background: #e6e6fa; width: 50%;">${cat.name}</td>
-            <td style="background: #6495ed;"><a href="/admin?action=edit&category=${cat.id}">Edit</a></td>
-            <td style="background: #f08080;"><a href="/admin?action=delete&category=${cat.id}">Delete</a></td>
+            <td style="background: #6495ed;"><a href="admin?action=edit&category=${cat.id}">Edit</a></td>
+            <td style="background: #f08080;"><a href="admin?action=delete&category=${cat.id}">Delete</a></td>
         </tr>
     </c:forEach>
 
@@ -30,7 +30,7 @@
     </c:choose>
 
 
-    <form action="/admin" method="POST">
+    <form action="admin" method="POST">
 
         <c:if test="${isEdit}">
             <input type="hidden" name="id" value="${category.id}"/>

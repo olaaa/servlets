@@ -4,9 +4,10 @@
 
 <html>
     <body>
-
+<%--для 18n--%>
     <fmt:setLocale value="<%=request.getLocale()%>"/>
-    <fmt:bundle basename="messages">
+<%--обрамляем тэгом всю область, где нужно использовать--%>
+    <fmt:bundle basename="messages">ъ
 
 
        <jsp:include page="header.jsp"/>
@@ -14,7 +15,7 @@
 
         <table width="100%">
             <tr>
-                <td colspan="2" align="right"><a href="/newpost">Create Post</a></td>
+                <td colspan="2" align="right"><a href="newpost">Create Post</a></td>
             </tr>
 
             <tr>
@@ -24,7 +25,7 @@
                     <c:forEach items="${posts}" var="post">
                         <h1>${post.title}</h1>
                         <p>${post.summary}</p>
-                        <a href="/blog?post=${post.id}">Read more...</a>
+                        <a href="blog?post=${post.id}">Read more...</a>
                         <hr/>
                     </c:forEach>
 
@@ -35,7 +36,7 @@
                     <h2>Categories:</h2>
                     <ul>
                     <c:forEach items="${categories}" var="cat">
-                        <li><a href="/blog?category=${cat.id}">${cat.name}</a></li>
+                        <li><a href="blog?category=${cat.id}">${cat.name}</a></li>
                     </c:forEach>
                     </ul>
                 </td>
@@ -44,6 +45,7 @@
         </table>
 
         <hr/>
+        <%--достать из бандл по ключу--%>
         <fmt:message key="page"/>
     </fmt:bundle>
 

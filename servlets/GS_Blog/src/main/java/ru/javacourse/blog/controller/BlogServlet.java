@@ -36,7 +36,10 @@ public class BlogServlet extends HttpServlet {
         String categoryId = request.getParameter("category");
         String url = request.getRequestURL().toString();
 
+        // это нужно для того, чтобы парсить url, не содержащие параметров, например:
+//        https://habrahabr.ru/page2/ вместо https://habrahabr.ru?page=2
         if (url.contains("newpost")) {
+            // создаём новый пост
             List<Category> categories = categoryDao.getAll();
             request.setAttribute("categories", categories);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/newPost.jsp");
@@ -46,7 +49,7 @@ public class BlogServlet extends HttpServlet {
 
 
         if (postId != null) {
-
+            // клиент хочет открыть пост
             Post post = postDao.getById(Integer.parseInt(postId));
             request.setAttribute("post", post);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/post.jsp");
@@ -54,7 +57,7 @@ public class BlogServlet extends HttpServlet {
 
 
         }  else {
-
+            // получаем посты по категории, если не указана, но все посты
             List<Post> posts = categoryId == null ?
                     postDao.getAll() :
                     postDao.getPostsByCategoryId(Integer.parseInt(categoryId));
@@ -92,7 +95,7 @@ public class BlogServlet extends HttpServlet {
             }else{
                 postDao.create(post);
             }
-            response.sendRedirect("/blog");
+            response.sendRedirect("blog");
         }else {
 
             Post post = new Post();
@@ -101,6 +104,7 @@ public class BlogServlet extends HttpServlet {
             if (!isNullOrEmpty(summary)) post.setSummary(summary);
             if (!isNullOrEmpty(body)) post.setBody(body);
 
+            // проверка, чтоб не передавались путсые поля
             request.setAttribute("error", "Please fill required fields!");
             request.setAttribute("post", post);
             request.setAttribute("categories", categoryDao.getAll());

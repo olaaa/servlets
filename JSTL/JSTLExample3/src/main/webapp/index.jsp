@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--работа со строковыми функциями--%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
@@ -20,12 +21,14 @@
 
         <c:set var="color"/>
 
+        <%--if - else--%>
         <c:choose>
-
+            <%--if--%>
             <c:when test="${b.price < 20}">
                 <c:set var="color" value="red"/>
             </c:when>
 
+            <%--else--%>
             <c:otherwise>
                 <c:set var="color" value="blue"/>
             </c:otherwise>

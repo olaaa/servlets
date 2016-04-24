@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--В Tomcat  — server.xml
+В данном случае описано не в нём, а в данном дискрипторе по пути META-INF/context.xml, конкретные настройки-->
 <Context>
 
     <Resource name="jdbc/blog"

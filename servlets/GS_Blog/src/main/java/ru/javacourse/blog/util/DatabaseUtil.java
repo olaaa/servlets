@@ -3,7 +3,6 @@ package ru.javacourse.blog.util;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,6 +27,12 @@ public class DatabaseUtil {
         try {
             Context context = new InitialContext();
             Context initContext  = (Context )context.lookup("java:/comp/env");
+            /**
+             * этот DataSource описывается на стороне сервера.
+             * В Tomcat  — server.xml
+             * В WildFly — standalone.xml
+             * Можно создать через админскую консоль.
+             */
             DataSource ds = (DataSource) initContext.lookup("jdbc/blog");
             connection = ds.getConnection();
         } catch (Exception e) {
@@ -47,7 +52,9 @@ public class DatabaseUtil {
 
     }
 
-
+    /**
+     * Чтение проперти-файла.
+     */
     private void loadProperties(){
         InputStream is = null;
         try {

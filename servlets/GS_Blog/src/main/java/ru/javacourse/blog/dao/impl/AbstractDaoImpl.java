@@ -22,6 +22,7 @@ public abstract class  AbstractDaoImpl<T extends BaseEntity>  implements Abstrac
         PreparedStatement pstmt = null;
         ResultSet resultSet = null;
         try {
+            // датасорс, у которого спрашиваем getConnection
             connection = dbUtil.getConnection();
             String query = getCreateQuery();
             pstmt = connection.prepareStatement(query,  Statement.RETURN_GENERATED_KEYS);

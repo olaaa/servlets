@@ -3,9 +3,10 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 
 <%!
+//новая скриплетная вставка для объявления метода
+//с воскл знаком
 
-
-    public void p(String s){
+    private void p(String s){
         System.out.println(s);
     }
 

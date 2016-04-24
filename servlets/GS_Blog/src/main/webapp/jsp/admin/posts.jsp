@@ -11,8 +11,8 @@
             <c:forEach items="${posts}" var="post">
                 <tr>
                     <td style="background: #e6e6fa; width: 50%;">${post.title}</td>
-                    <td style="background: #6495ed;"><a href="/admin?action=edit&post=${post.id}">Edit post</a></td>
-                    <td style="background: #f08080;"><a href="/admin?action=delete&post=${post.id}">Delete post</a></td>
+                    <td style="background: #6495ed;"><a href="admin?action=edit&post=${post.id}">Edit post</a></td>
+                    <td style="background: #f08080;"><a href="admin?action=delete&post=${post.id}">Delete post</a></td>
                 </tr>
             </c:forEach>
 

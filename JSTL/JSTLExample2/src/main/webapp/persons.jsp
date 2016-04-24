@@ -13,6 +13,8 @@
 
         Employee list:
         <ul>
+            <%--атрибуты реквеста доступны сразу через ${} --%>
+                <%--var="p" текущий элемент цикла--%>
             <c:forEach items="${persons}" var="p">
                 <li>${p.name} ${p.surname} <a href="FormServlet?delete=${p.name}">Удалить</a></li>
             </c:forEach>

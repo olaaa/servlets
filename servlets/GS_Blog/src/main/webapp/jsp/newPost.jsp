@@ -5,11 +5,13 @@
 
 <jsp:include page="header.jsp"/>
 
-<form action="/blog" method="POST">
-
+<form action="blog" method="POST">
+<%--страница используется и для редактирования и для создания поста--%>
 
     <c:choose>
+        <%--если передали атрибут post, то редактируем--%>
         <c:when test="${post ne null && post.id ne null}">
+            <%--ставлю флаг редактирования--%>
             <c:set var="isEdit" value="true"/>
             <h1>Edit blog post ${post.title}</h1>
         </c:when>
@@ -38,12 +40,14 @@
         </tr>
         <tr>
             <td>Summary</td>
-            <td><textarea name="summary" rows="10" cols="60"><c:if test="${postExist}">${post.summary}</c:if></textarea>
+            <td><textarea name="summary" rows="10" cols="60">
+                <c:if test="${postExist}">${post.summary}</c:if></textarea>
             </td>
         </tr>
         <tr>
             <td>Body</td>
-            <td><textarea name="body" rows="20" cols="40"><c:if test="${postExist}">${post.body}</c:if></textarea></td>
+            <td><textarea name="body" rows="20" cols="40">
+                <c:if test="${postExist}">${post.body}</c:if></textarea></td>
         </tr>
         <tr>
             <td>Category</td>

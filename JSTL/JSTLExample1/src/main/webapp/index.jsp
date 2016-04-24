@@ -24,7 +24,7 @@
 
         <br/>
 
-        <h3>JSTL SET AND FOREACH</h3>
+        <h3>JSTL SET VAR ON PAGE AND FOREACH</h3>
         <c:set var="t" value="1"/>
 
         <c:forEach begin="${t}" end="10">
@@ -36,6 +36,7 @@
 
         <%
             String [] array = new String[]{"one", "two", "three"};
+//            чтобы данные были доступны для jstl (использование выше)
             pageContext.setAttribute("array", array);
 
         %>

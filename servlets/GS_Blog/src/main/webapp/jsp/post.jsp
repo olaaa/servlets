@@ -3,10 +3,12 @@
 
 <html>
     <head>
+        <%--аттрибут реквеста--%>
         <title>${post.title}</title>
     </head>
 <body>
 
+    <%--включает кусок другой jsp--%>
     <jsp:include page="header.jsp"/>
 
     <span style="font-size: 32px; color: #00008b">${post.title}</span>

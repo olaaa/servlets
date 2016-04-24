@@ -3,8 +3,7 @@ package ru.javacourse.blog.dao;
 import java.util.List;
 
 /**
- * Author: Georgy Gobozov
- * Date: 21.04.13
+ * CRUD операции
  */
 public interface AbstractDao<T> {
 
